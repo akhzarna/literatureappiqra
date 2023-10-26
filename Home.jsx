@@ -1,7 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, Text, View, Image } from 'react-native';
+import { FlatList, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native'
 export default Home = () => {
+  const navigation = useNavigation();
   const [pdf, setPdf] = useState(null);
   const [unicode, setUnicode] = useState(null);
 
@@ -23,19 +26,24 @@ export default Home = () => {
     <Image source={{ uri: "http://139.59.177.72/" + item.coverPhotoUri }} style={styles.image} />
       <Text>{item.title}</Text>
       {console.log(item.coverPhotoUri)}
-      <Text> Hello</Text>
+      
       
     </View>
   );
 
   const renderUnicode = ({ item }) => (
+    
+    
     <View style={{ flex:1,  padding: 16, borderBottomWidth: 1, borderBottomColor: '#ccc', paddingLeft: 15, paddingTop: '15%' }}>
+    {console.log(item.chapters)}
+    <TouchableOpacity  onPress={()=> {navigation.navigate("Chapters",{"chapters": item.chapters})}} >
     <Image source={{ uri: "http://139.59.177.72/" + item.coverPhotoUri }} style={styles.image} />
       <Text>{item.title}</Text>
       {console.log(item.coverPhotoUri)}
-      <Text> Hello</Text>
       
+      </TouchableOpacity>  
     </View>
+    
   );
   
   const data = [

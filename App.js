@@ -4,6 +4,7 @@ import ApiComponent from "./component/ApiComponent";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './Home';
+import Chapters from './Chapters';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -25,13 +26,13 @@ export default function App() {
 
 
 
-      {/* <Stack.Screen
-          name="Book"
-          component={Product}
+      <Stack.Screen
+          name="Chapters"
+          component={Chapters}
           options={{
             headerShown: false
           }}
-        /> */}
+        />
 
 
       
