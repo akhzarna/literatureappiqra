@@ -1,22 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import ApiComponent from "./component/ApiComponent";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Home from './Screens/Home';
+import BooksChapters from './Screens/BooksChapters';
 
 export default function App() {
+  const Stack = createStackNavigator();
+  
   return (
-		<View style={styles.container}>
-			<Text>Open up App.js to start working on your app!</Text>
-			<ApiComponent />
-			<StatusBar style="auto" />
-		</View>
+		<NavigationContainer>
+      <Stack.Navigator>
+
+        <Stack.Screen
+          name='Home'
+          component={Home}
+          options={{headerShown:false}}
+        />
+
+        <Stack.Screen
+          name='BookChapters'
+          component={BooksChapters}
+
+        />
+
+      </Stack.Navigator>
+          
+      
+    </NavigationContainer>
 	);
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
