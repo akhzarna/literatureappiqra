@@ -1,15 +1,83 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import ApiComponent from "./component/ApiComponent";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Home from './src/Home';
+import { NavigationContainer } from '@react-navigation/native';
+
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import BookChapters from './src/BookChapters';
+
 
 export default function App() {
+
+  const Tab = createBottomTabNavigator();
+  const Stack = createNativeStackNavigator();
+
+
+  const Root = () => {
+    return (
+      <Tab.Navigator>
+        <Tab.Screen
+          name="Featured"
+          component={Home}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="home" color={color} size={size} />
+            )
+          }}
+        />
+
+        <Tab.Screen
+          name="settings"
+          component={Home}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="settings" color={color} size={size} />
+            )
+          }}
+        />
+
+
+        <Tab.Screen
+          name="Search"
+          component={Home}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="search" color={color} size={size} />
+            )
+          }}
+        />
+      </Tab.Navigator>
+    )
+  }
+
   return (
-		<View style={styles.container}>
-			<Text>Open up App.js to start working on your app!</Text>
-			<ApiComponent />
-			<StatusBar style="auto" />
-		</View>
-	);
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Root"
+          component={Root}
+          options={{
+            headerShown: false
+          }}
+        />
+
+        <Stack.Screen
+          name="BookChapters"
+          component={BookChapters}
+          options={{
+            headerShown: true,
+            headerTitle: 'Book Chapters'
+          }}
+        />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+
+  );
 }
 
 const styles = StyleSheet.create({
