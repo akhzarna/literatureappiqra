@@ -3,8 +3,8 @@ import { View, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ApiComponent from "./component/ApiComponent";
-import BooksChapterList from "./BooksChapterList";
+import ApiComponent from "./ApiComponent";
+import ChapterList from "./BooksChapterList";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,10 +21,10 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name="BooksChapterList"
-          component={BooksChapterList}
+          name="ChapterList"
+          component={ChapterList}
           options={{
-            title: "Books Chapter List",
+            title: "Chapter List",
             headerTitleAlign: "center", // Center-align the title
           }}
         />
