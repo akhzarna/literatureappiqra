@@ -5,7 +5,7 @@ import { Text, View } from "react-native";
 const ApiComponent = () => {
 	useEffect(() => {
 		// Define the API endpoint
-		const apiUrl = "http://139.59.177.72/api/books?page=1"; // Example API
+		const apiUrl = "https://api.coindesk.com/v1/bpi/currentprice.json"; // Example API
 		// Make an API request
 		axios
 			.get(apiUrl)
