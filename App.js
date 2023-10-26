@@ -1,22 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import ApiComponent from "./component/ApiComponent";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import MainScreen from "./component/MainScreen";
+import ChapterListScreen from "./component/ChapterListScreen";
 
-export default function App() {
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-		<View style={styles.container}>
-			<Text>Open up App.js to start working on your app!</Text>
-			<ApiComponent />
-			<StatusBar style="auto" />
-		</View>
-	);
-}
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={MainScreen}
+          options={{ title: "Book List" }}
+        />
+        <Stack.Screen
+          name="ChapterList"
+          component={ChapterListScreen}
+          options={{ title: "Chapters" }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
