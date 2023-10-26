@@ -2,7 +2,9 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { Text, View } from "react-native";
 
+
 const ApiComponent = () => {
+	var ali = "cake";
 	useEffect(() => {
 		// Define the API endpoint
 		const apiUrl = "http://139.59.177.72/api/books?page=1"; // Example API
