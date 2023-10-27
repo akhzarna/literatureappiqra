@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
   chaptersHeading: {
     fontSize: 18,
     fontWeight: "bold",
-    marginTop: 16,
+    marginTop: 10,
+    marginBottom: 16,
   },
   chaptersContainer: {
     marginTop: 8,

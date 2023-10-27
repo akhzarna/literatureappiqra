@@ -75,10 +75,11 @@ const HomeScreen = ({ navigation }) => {
           <FlatList
             data={nonSearchableBooks}
             keyExtractor={(item) => item._id}
-            numColumns={3}
+            // numColumns={3}
+            horizontal
             contentContainerStyle={{ paddingHorizontal: 10 }}
-            columnWrapperStyle={{ justifyContent: "space-between" }}
-            ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
+            // columnWrapperStyle={{ justifyContent: "space-between" }}
+            ItemSeparatorComponent={() => <View style={{ width: 30 }} />}
             renderItem={({ item }) => <BookItem book={item} />}
           />
         </View>
